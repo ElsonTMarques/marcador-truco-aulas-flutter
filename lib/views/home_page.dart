@@ -54,22 +54,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _showPlayerBoard(Player player) {
-    return Expanded(
-      flex: 1,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          _showPlayerName(player.name),
-          _showPlayerScore(player.score),
-          _showPlayerVictories(player.victories),
-          _showScoreButtons(player),
-        ],
-      ),
-    );
-  }
-
   Widget _showPlayers() {
     return Row(
       mainAxisSize: MainAxisSize.max,
@@ -79,6 +63,23 @@ class _HomePageState extends State<HomePage> {
         _showPlayerBoard(_playerOne),
         _showPlayerBoard(_playerTwo),
       ],
+    );
+  }
+
+  Widget _showPlayerBoard(Player player) {
+    return Expanded(
+      flex: 1,
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          _showPlayerName(player.name),
+          _showPlayerScore(player.score),
+          _showPlayerVictories(player.victories),
+          _showScoreButtons(player),
+        ],
+      ),
     );
   }
 
@@ -130,6 +131,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _showScoreButtons(Player player) {
     return Row(
+      mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
